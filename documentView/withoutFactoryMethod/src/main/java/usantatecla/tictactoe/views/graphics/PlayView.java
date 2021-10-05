@@ -9,7 +9,6 @@ import usantatecla.tictactoe.views.Message;
 import javax.swing.*;
 import java.awt.*;
 
-@SuppressWarnings("serial")
 class PlayView extends JFrame {
 
     static final String ENTER_COORDINATE_TO_PUT = "Enter a coordinate to put a token:";

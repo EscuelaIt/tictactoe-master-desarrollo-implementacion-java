@@ -8,7 +8,6 @@ import usantatecla.tictactoe.views.Message;
 import javax.swing.*;
 import java.awt.*;
 
-@SuppressWarnings("serial")
 public class GameView extends JPanel {
 
     private Game game;

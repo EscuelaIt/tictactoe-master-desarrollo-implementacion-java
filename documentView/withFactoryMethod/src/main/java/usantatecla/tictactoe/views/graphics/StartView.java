@@ -6,7 +6,6 @@ import usantatecla.tictactoe.views.Message;
 import javax.swing.*;
 import java.awt.*;
 
-@SuppressWarnings("serial")
 public class StartView extends JFrame {
 
     private Game game;

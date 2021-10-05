@@ -2,7 +2,6 @@ package usantatecla.tictactoe.views.graphics;
 
 import java.awt.*;
 
-@SuppressWarnings("serial")
 class Constraints extends GridBagConstraints {
 
 	Constraints(int gridX, int gridY, int gridWidth, int gridHeight) {

@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-@SuppressWarnings("serial")
 public abstract class CoordinateView extends JPanel implements ActionListener, KeyListener {
 
 	protected static final String ENTER_COORDINATE_TO_PUT = "Enter a coordinate to put a token:";

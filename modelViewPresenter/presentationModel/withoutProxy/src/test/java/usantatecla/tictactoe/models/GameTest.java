@@ -1,7 +1,6 @@
 package usantatecla.tictactoe.models;
 
 import org.junit.jupiter.api.Test;
-import usantatecla.tictactoe.types.Error;
 import usantatecla.tictactoe.types.Token;
 
 import static org.hamcrest.MatcherAssert.assertThat;

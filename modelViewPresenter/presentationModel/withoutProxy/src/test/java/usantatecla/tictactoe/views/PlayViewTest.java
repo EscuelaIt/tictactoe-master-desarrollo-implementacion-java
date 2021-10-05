@@ -10,7 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.models.Coordinate;
 import usantatecla.tictactoe.types.PlayerType;
-import usantatecla.tictactoe.types.Token;
 import usantatecla.utils.Console;
 
 import static org.mockito.ArgumentMatchers.anyString;

@@ -8,7 +8,6 @@ import usantatecla.utils.models.ClosedInterval;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-@SuppressWarnings("serial")
 public class CoordinateMoveView extends CoordinateView {
 
     static final String ENTER_COORDINATE_TO_REMOVE = "Enter a coordinate to remove a token:";

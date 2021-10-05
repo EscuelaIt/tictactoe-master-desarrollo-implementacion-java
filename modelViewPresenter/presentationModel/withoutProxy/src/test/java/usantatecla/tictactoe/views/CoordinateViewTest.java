@@ -15,7 +15,6 @@ import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
 import usantatecla.tictactoe.controllers.PlayController;
 import usantatecla.tictactoe.models.Coordinate;
-import usantatecla.tictactoe.types.Error;
 import usantatecla.utils.Console;
 
 import usantatecla.tictactoe.models.Session;

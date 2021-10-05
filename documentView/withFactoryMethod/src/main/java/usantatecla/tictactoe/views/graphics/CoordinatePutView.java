@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-@SuppressWarnings("serial")
 public class CoordinatePutView extends CoordinateView {
 
     private Coordinate coordinate;
