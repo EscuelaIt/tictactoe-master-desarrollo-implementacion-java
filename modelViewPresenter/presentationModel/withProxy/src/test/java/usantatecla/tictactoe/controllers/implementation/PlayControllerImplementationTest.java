@@ -1,11 +1,12 @@
 package usantatecla.tictactoe.controllers.implementation;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import usantatecla.tictactoe.models.Coordinate;
 import usantatecla.tictactoe.models.Session;
@@ -69,13 +70,14 @@ public class PlayControllerImplementationTest {
         assertEquals('O', this.playControllerImplementation.getTokenChar(this.coordinate11));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewPlayControllerWhenPutNewTokenOnOccupiedSpaceThenAssertionError() {
         this.playControllerImplementation.putTokenPlayerFromTurn(this.coordinate00);
         assertEquals('X', this.playControllerImplementation.getTokenChar(this.coordinate00));
         this.playControllerImplementation.putTokenPlayerFromTurn(this.coordinate11);
         assertEquals('O', this.playControllerImplementation.getTokenChar(this.coordinate11));
-        this.playControllerImplementation.putTokenPlayerFromTurn(new Coordinate(1, 1));
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.playControllerImplementation.putTokenPlayerFromTurn(new Coordinate(1, 1)));
     }
 
     @Test
@@ -92,7 +94,7 @@ public class PlayControllerImplementationTest {
         assertTrue(this.playControllerImplementation.isEmptyToken(this.coordinate00));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewPlayControllerWhenMoveATokenWithOriginEmptyThenAssertionError() {
         this.playControllerImplementation.putTokenPlayerFromTurn(this.coordinate00);
         assertEquals('X', this.playControllerImplementation.getTokenChar(this.coordinate00));
@@ -101,10 +103,11 @@ public class PlayControllerImplementationTest {
         Coordinate[] coordinates = new Coordinate[2];
         coordinates[0] = new Coordinate(1, 0);
         coordinates[1] = this.coordinate01;
-        this.playControllerImplementation.moveTokenPlayerFromTurn(coordinates);
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.playControllerImplementation.moveTokenPlayerFromTurn(coordinates));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewPlayControllerWhenMoveATokenWithTargetOccupiedThenAssertionError() {
         this.playControllerImplementation.putTokenPlayerFromTurn(this.coordinate00);
         assertEquals('X', this.playControllerImplementation.getTokenChar(this.coordinate00));
@@ -113,7 +116,8 @@ public class PlayControllerImplementationTest {
         Coordinate[] coordinates = new Coordinate[2];
         coordinates[0] = this.coordinate00;
         coordinates[1] = this.coordinate11;
-        this.playControllerImplementation.moveTokenPlayerFromTurn(coordinates);
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.playControllerImplementation.moveTokenPlayerFromTurn(coordinates));
     }
 
     @Test

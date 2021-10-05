@@ -1,18 +1,18 @@
 package usantatecla.utils;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ConsoleTest {
 
     @Mock
@@ -33,10 +33,11 @@ public class ConsoleTest {
         assertEquals(1, this.console.readInt(""));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewConsoleWhenReadLineCorrectStringIntegerThenIsInCorrect() throws IOException {
         when(this.bufferedReader.readLine()).thenReturn("a");
-        assertEquals(1, this.console.readInt(""));
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.console.readInt(""));
     }
 
     @Test
@@ -45,10 +46,11 @@ public class ConsoleTest {
         assertEquals('a', this.console.readChar(""));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewConsoleWhenReadLineCorrectStringCharThenIsInCorrect() throws IOException {
         when(this.bufferedReader.readLine()).thenReturn("a");
-        assertEquals(1, this.console.readChar(""));
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.console.readChar(""));
     }
 
 } 

@@ -1,19 +1,16 @@
 package usantatecla.tictactoe.models;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import usantatecla.utils.Console;
 import usantatecla.utils.Direction;
 
-@RunWith(MockitoJUnitRunner.class)
 public class CoordinateTest {
 
     private Coordinate coordinate00;

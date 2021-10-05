@@ -1,21 +1,22 @@
 package usantatecla.tictactoe.views;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import usantatecla.tictactoe.controllers.implementation.PlayControllerImplementation;
 import usantatecla.tictactoe.models.Coordinate;
 import usantatecla.tictactoe.models.SessionImplementation;
 import usantatecla.utils.Console;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CoordinateViewTest {
     static final String ENTER_COORDINATE_TO_PUT = "Enter a coordinate to put a token:";
 
@@ -35,20 +36,22 @@ public class CoordinateViewTest {
         assertEquals(coordinateExpected.getColumn(), coordinateRead.getColumn());
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewCoordinatesWhenRow4AndColumn4ThenAssertionException() {
         when(this.console.readInt("Row: ")).thenReturn(4);
         when(this.console.readInt("Column: ")).thenReturn(4);
-        this.coordinateView.read("Title");
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.coordinateView.read("Title"));
         verify(this.console).readInt("Row: ");
         verify(this.console).readInt("Column: ");
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewCoordinatesWhenRow0AndColumn0ThenAssertionException() {
         when(this.console.readInt("Row: ")).thenReturn(0);
         when(this.console.readInt("Column: ")).thenReturn(0);
-        this.coordinateView.read("Title");
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.coordinateView.read("Title"));
         verify(this.console).readInt("Row: ");
         verify(this.console).readInt("Column: ");
     }

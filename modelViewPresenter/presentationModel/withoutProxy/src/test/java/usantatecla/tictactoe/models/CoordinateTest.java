@@ -6,19 +6,16 @@ import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import usantatecla.utils.Console;
 import usantatecla.utils.Direction;
 
-//@RunWith(MockitoJUnitRunner.class)
 public class CoordinateTest {
 
     private Coordinate coordinate00;
     private Coordinate coordinate01;
     private Coordinate coordinate11;
     private Coordinate coordinate02;
-    private Coordinate coordinate12;
 
     @Mock
     private Console console;
@@ -31,7 +28,6 @@ public class CoordinateTest {
         this.coordinate01 = new Coordinate(0, 1);
         this.coordinate11 = new Coordinate(1, 1);
         this.coordinate02 = new Coordinate(0, 2);
-        this.coordinate12 = new Coordinate(1, 2);
     }
 
     @Test
