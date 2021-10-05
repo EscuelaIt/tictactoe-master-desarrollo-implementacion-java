@@ -39,7 +39,7 @@ public class CoordinateViewTest {
 
     @Test
     public void testGivenNewCoordinateViewWhenReadCoordinateThenIsCorrect() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
             when(this.console.readInt(anyString())).thenReturn(2,1);
             when(this.playController.isCoordinateValid(any())).thenReturn(true);
@@ -53,7 +53,7 @@ public class CoordinateViewTest {
     @Test
 
     public void testGivenNewCoordinatesWhenRow4AndColumn4ThenAssertionException() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
             when(this.console.readInt("Row: ")).thenReturn(4);
             when(this.console.readInt("Column: ")).thenReturn(4);
@@ -67,7 +67,7 @@ public class CoordinateViewTest {
 
     @Test
     public void testGivenNewCoordinatesWhenRow0AndColumn0ThenAssertionException() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
             when(this.console.readInt("Row: ")).thenReturn(0);
             when(this.console.readInt("Column: ")).thenReturn(0);
@@ -81,7 +81,7 @@ public class CoordinateViewTest {
 
     @Test
     void testGivenNewCoordinateViewWhenReadCoordinateThenReturnCoordinate() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
             when(this.console.readInt(anyString())).thenReturn(1);
             when(this.playController.isCoordinateValid(any(Coordinate.class))).thenReturn(true);
@@ -93,7 +93,7 @@ public class CoordinateViewTest {
 
     @Test
     void testGivenNewCoordinateViewWhenReadInvalidCoordinateThenReadValidCoordinateAndReturnValidCoordinate() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             when(this.console.readInt(anyString())).thenReturn(4, 1);
             when(this.playController.isCoordinateValid(any(Coordinate.class))).thenReturn(true);
             console.when(Console::getInstance).thenReturn(this.console);

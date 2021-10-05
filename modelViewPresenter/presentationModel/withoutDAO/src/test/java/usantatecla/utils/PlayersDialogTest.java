@@ -1,16 +1,17 @@
 package usantatecla.utils;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PlayersDialogTest {
 
     @Mock
@@ -33,17 +34,19 @@ public class PlayersDialogTest {
         verify(this.console).readInt("Number of users [0-" + 2 + "] ");
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewPlayersDialogWhenNumberOfPlayersAreNegativeThenIsIncorrect() {
         when(this.console.readInt("Number of users [0-" + 2 + "] ")).thenReturn(-1);
-        assertEquals(-1, this.playersDialog.read(2));
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.playersDialog.read(2));
         verify(this.console).readInt("Number of users [0-" + 2 + "] ");
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewPlayersDialogWhenNumberOfPlayersAreThreeThenIsIncorrect() {
         when(this.console.readInt("Number of users [0-" + 2 + "] ")).thenReturn(3);
-        assertEquals(3, this.playersDialog.read(2));
+        Assertions.assertThrows(AssertionError.class, () ->
+            this.playersDialog.read(2));
         verify(this.console).readInt("Number of users [0-" + 2 + "] ");
     }
     

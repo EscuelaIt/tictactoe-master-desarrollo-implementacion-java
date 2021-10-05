@@ -36,7 +36,7 @@ public class PlayViewTest {
 
     @Test
     void testGivenNewPlayViewWhenUserPlayerPutCoordinateThenGamePutCoordinate() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             when(this.playController.isBoardComplete()).thenReturn(false);
             when(this.playController.getTypeOfTokenPlayerFromTurn()).thenReturn(PlayerType.USER_PLAYER);
             when(this.console.readInt(anyString())).thenReturn(1);
@@ -51,7 +51,7 @@ public class PlayViewTest {
 
     @Test
     void testGivenNewPlayViewWhenMachinePlayerPutCoordinateThenGamePutCoordinate() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             Coordinate coordinate = new Coordinate(0, 0);
             when(this.playController.isBoardComplete()).thenReturn(false);
             when(this.playController.getTypeOfTokenPlayerFromTurn()).thenReturn(PlayerType.MACHINE_PLAYER);
@@ -67,7 +67,7 @@ public class PlayViewTest {
 
     @Test
     void testGivenNewPlayViewWhenUserPlayerMoveOriginToTargetThenGameMoveOriginToTarget() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             Coordinate[] coordinates = {new Coordinate(0, 1), new Coordinate(1, 1)};
             when(this.playController.isBoardComplete()).thenReturn(true);
             when(this.playController.getTypeOfTokenPlayerFromTurn()).thenReturn(PlayerType.USER_PLAYER);
@@ -83,7 +83,7 @@ public class PlayViewTest {
 
     @Test
     void testGivenNewPlayViewWhenMachinePlayerMoveOriginToTargetThenGameMoveOriginToTarget() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             Coordinate[] coordinates = {new Coordinate(0, 0), new Coordinate(1, 1)};
             when(this.playController.isBoardComplete()).thenReturn(true);
             when(this.playController.getTypeOfTokenPlayerFromTurn()).thenReturn(PlayerType.MACHINE_PLAYER);

@@ -33,7 +33,7 @@ public class StartViewTest {
 
     @Test
     void testGivenNewStartViewWhenReadNumberOfUsersThenGameSetNumberOfUsers() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             when(this.console.readInt(anyString())).thenReturn(1);
             console.when(Console::getInstance).thenReturn(this.console);
             this.startView.interact(startController);

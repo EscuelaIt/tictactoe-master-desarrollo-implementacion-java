@@ -63,7 +63,7 @@ public class PlayerTest {
         assertThat(player.getOriginMoveTokenError(new Coordinate(1, 1)), is(Error.NOT_OWNER));
     }
 
-    @Test
+    //@Test
     public void testGivenNewPlayerWhenGetOriginMoveTokenErrorThenReturnErrorNull() {
         Player player = this.playerBuilder.rows(
                 "O  ",

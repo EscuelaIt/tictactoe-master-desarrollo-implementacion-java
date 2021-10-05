@@ -1,9 +1,10 @@
 package usantatecla.tictactoe.models;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import usantatecla.tictactoe.types.Token;
 
@@ -52,11 +53,12 @@ public class BoardTest {
         assertFalse(this.board.isOccupied(originCoordinate, token));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testGivenNewBoardWhenMoveNewTokenTheOriginIsEmptyThenAssertionException() {
         Coordinate originCoordinate = new Coordinate(0, 0);
         Coordinate coordinateToMove = new Coordinate(0, 1);
-        this.board.move(originCoordinate, coordinateToMove);
+        Assertions.assertThrows(AssertionError.class, () -> 
+            this.board.move(originCoordinate, coordinateToMove));
     }
 
     @Test

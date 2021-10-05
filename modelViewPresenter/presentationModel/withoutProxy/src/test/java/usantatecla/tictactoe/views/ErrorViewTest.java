@@ -35,7 +35,7 @@ public class ErrorViewTest {
 
     @Test
     void testGivenNewGameViewWhenWriteNullErrorThenNeverPrint() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             console.when(Console::getInstance).thenReturn(this.console);
             this.errorView.writeln();
             verify(this.console, never()).writeln("");
@@ -44,7 +44,7 @@ public class ErrorViewTest {
 
     @Test
     void testGivenNewGameViewWhenWriteNotNullErrorThenPrintErrorMessage() {
-        try (MockedStatic console = mockStatic(Console.class)) {
+        try (MockedStatic<Console> console = mockStatic(Console.class)) {
             when(this.error.ordinal()).thenReturn(0);
             console.when(Console::getInstance).thenReturn(this.console);
             this.errorView.writeln();
